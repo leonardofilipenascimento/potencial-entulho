@@ -1,0 +1,34 @@
+.item {
+  border-bottom: 1px solid var(--line);
+  padding: 20px 0;
+}
+
+.item summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15.5px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item summary::-webkit-details-marker {
+  display: none;
+}
+
+.item summary::after {
+  content: "+";
+  font-size: 20px;
+  color: var(--yellow-dark);
+}
+
+.item[open] summary::after {
+  content: "\2013";
+}
+
+.item p {
+  color: var(--grey);
+  font-size: 14.5px;
+  margin: 12px 0 0;
+}

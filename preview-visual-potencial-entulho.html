@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locação de caçambas estacionárias em Salvador e Região | Potencial Entulho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;800&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dark:#1a1a1a;
+    --dark-2:#262421;
+    --yellow:#FFC107;
+    --yellow-dark:#e0a800;
+    --cream:#f6f4f0;
+    --grey:#666;
+    --line:#e8e6e1;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Barlow',sans-serif;color:var(--dark);background:#fff;line-height:1.5;}
+  h1,h2,h3{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.5px;margin:0;}
+  a{text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+
+  /* Top bar */
+  .topbar{background:var(--dark);color:#ccc;font-size:12px;letter-spacing:0.5px;padding:10px 0;}
+  .topbar .wrap{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;font-weight:600;}
+  .topbar span{color:#eee;}
+
+  /* Hero */
+  .hero{background:var(--dark);color:#fff;position:relative;padding:64px 0 80px;overflow:hidden;}
+  .hero::after{content:"";position:absolute;right:-120px;top:-80px;width:420px;height:420px;background:radial-gradient(circle, rgba(255,193,7,0.18), transparent 70%);}
+  .badge-region{display:inline-block;background:var(--yellow);color:var(--dark);font-size:11px;font-weight:800;letter-spacing:3px;padding:6px 16px;text-transform:uppercase;margin-bottom:22px;}
+  .hero h1{font-size:44px;font-weight:800;line-height:1.08;max-width:640px;margin-bottom:18px;color:#fff;}
+  .hero p{font-size:16px;font-weight:300;color:#ccc;max-width:520px;margin-bottom:30px;}
+  .btn{display:inline-block;background:var(--yellow);color:var(--dark);font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;padding:16px 30px;border-radius:2px;transition:background .15s ease;}
+  .btn:hover{background:var(--yellow-dark);}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;border-top:1px solid #3a3a3a;padding-top:32px;max-width:640px;}
+  .stat h3{color:var(--yellow);font-size:34px;font-weight:800;}
+  .stat p{font-size:10.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#aaa;margin-top:4px;}
+
+  /* Section shared */
+  .section{padding:80px 0;}
+  .eyebrow{color:var(--yellow-dark);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+  .section h2{font-size:30px;font-weight:700;margin-bottom:36px;max-width:620px;}
+  .section-alt{background:var(--cream);}
+
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .about-grid p{color:var(--grey);font-size:15.5px;margin-bottom:16px;}
+  .about-grid img{width:100%;border-radius:4px;display:block;}
+  .about-grid b{color:var(--dark);}
+
+  /* Features */
+  .features{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;}
+  .feature-card{background:#fff;border:1px solid var(--line);padding:28px 22px;border-radius:4px;}
+  .feature-card img{width:44px;height:44px;object-fit:contain;margin-bottom:16px;}
+  .feature-card h3{font-size:16px;font-weight:700;text-transform:none;margin-bottom:8px;}
+  .feature-card p{font-size:13.5px;color:var(--grey);margin:0;}
+
+  /* Area */
+  .area{text-align:center;}
+  .area h2{margin:0 auto 12px;}
+  .area p{color:var(--grey);max-width:480px;margin:0 auto 30px;}
+  .area iframe{width:100%;height:340px;border:0;border-radius:4px;margin-top:8px;}
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid var(--line);padding:20px 0;}
+  .faq-item summary{cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+  .faq-item summary::after{content:"+";font-size:20px;color:var(--yellow-dark);}
+  .faq-item[open] summary::after{content:"–";}
+  .faq-item p{color:var(--grey);font-size:14.5px;margin:12px 0 0;}
+
+  /* CTA strip */
+  .cta-strip{background:var(--dark);color:#fff;text-align:center;padding:64px 0;}
+  .cta-strip h2{color:#fff;font-size:28px;max-width:560px;margin:0 auto 12px;}
+  .cta-strip p{color:#bbb;max-width:480px;margin:0 auto 28px;font-weight:300;}
+
+  /* Contact / footer */
+  .contact{padding:70px 0 30px;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+  .contact-item{margin-bottom:22px;}
+  .contact-item .label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--yellow-dark);margin-bottom:4px;}
+  .contact-item .value{font-size:16px;font-weight:600;}
+  .contact-grid iframe{width:100%;height:100%;min-height:280px;border:0;border-radius:4px;}
+  footer{border-top:1px solid var(--line);padding:20px 0;text-align:center;font-size:12px;color:#999;}
+
+  @media(max-width:860px){
+    .hero h1{font-size:32px;}
+    .stats{grid-template-columns:repeat(2,1fr);row-gap:24px;}
+    .about-grid,.features,.contact-grid{grid-template-columns:1fr;}
+    .features{gap:16px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>📍 Cabula — Salvador, BA</span>
+    <span>📞 (71) 99726-6286</span>
+    <span>✉ contato@potencialentulho.com</span>
+    <span>🕐 Seg–Sáb: 07h às 18h</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="badge-region">Salvador · Lauro de Freitas · Região Metropolitana</span>
+    <h1>Aluguel de Caçamba de Entulho em Salvador — Entrega Rápida e Preço Justo</h1>
+    <p>Locação de caçambas estacionárias para obras, reformas e demolições em Salvador e Região Metropolitana. Remoção de entulho com destinação ambientalmente correta, agilidade na entrega e o melhor custo-benefício da Bahia.</p>
+    <a class="btn" href="https://wa.me/5571997266286" target="_blank">Solicitar Orçamento</a>
+
+    <div class="stats">
+      <div class="stat"><h3>500+</h3><p>Obras Atendidas</p></div>
+      <div class="stat"><h3>24h</h3><p>Entrega de Caçamba</p></div>
+      <div class="stat"><h3>100%</h3><p>Destinação Legal</p></div>
+      <div class="stat"><h3>4.6★</h3><p>Avaliação no Google</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">Empresa de caçamba em Salvador</div>
+      <h2 style="margin-bottom:18px;">Quem é a Potencial Entulho?</h2>
+      <p>A <b>Potencial Entulho</b> é especializada em <b>aluguel de caçamba de entulho em Salvador</b> e Região Metropolitana. Atuamos na <b>locação de caçambas estacionárias</b> para obras, reformas, demolições para toda a Grande Salvador.</p>
+      <p>Com frota própria e equipe treinada, garantimos a <b>entrega rápida de caçamba</b> no prazo combinado e a <b>destinação correta dos resíduos sólidos</b>, em conformidade com a legislação ambiental vigente e as normas da ABNT.</p>
+    </div>
+    <img src="https://potencialentulho.com/wp-content/uploads/2026/04/2025-08-01.webp" alt="Caçamba de entulho Potencial Entulho">
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="eyebrow">Por que escolher a Potencial Entulho</div>
+    <h2>Referência em Locação de Caçamba em Salvador e Região</h2>
+    <div class="features">
+      <div class="feature-card">
+        <img src="https://potencialentulho.com/wp-content/uploads/elementor/thumbs/economia_aluguel_entulho-1-rm2pnqvhf76u3e9w8x4lfkfr4aektnp2nklu1lu6tk.png" alt="">
+        <h3>Menor Preço de Caçamba</h3>
+        <p>Melhor custo-benefício no aluguel de caçamba em Salvador. Preço justo, sem taxas ocultas e com orçamento imediato via WhatsApp.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://potencialentulho.com/wp-content/uploads/elementor/thumbs/pontualidade_cacamba_entulho-rm2pntozzpap285ssgch51q4wg0ogr09nykahfq0aw.png" alt="">
+        <h3>Entrega Rápida de Caçamba</h3>
+        <p>Caçamba de entulho entregue em até 24h em Salvador e toda a Região Metropolitana. Sua obra não para por falta de caçamba.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://potencialentulho.com/wp-content/uploads/elementor/thumbs/atendimento-aluguel-cacamba-entulho-rm2pnwiik7ek121pbzkcuj0iolms3ubgociqx9lts8.png" alt="">
+        <h3>Atendimento via WhatsApp</h3>
+        <p>Peça sua caçamba de entulho direto pelo WhatsApp. Orçamento em minutos, sem burocracia e com atendimento humano e ágil.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://potencialentulho.com/wp-content/uploads/elementor/thumbs/ecologia-e-meio-ambiente-rm2pnye6xvh4o9yz10dlzijfvddij8ixcltpvtj1fs.png" alt="">
+        <h3>Destinação Ambiental Correta</h3>
+        <p>Todo resíduo coletado é encaminhado para locais autorizados. Trabalhamos em conformidade com as normas ambientais e legislação de resíduos sólidos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section area">
+  <div class="wrap">
+    <div class="eyebrow">Área de Atendimento</div>
+    <h2>Aluguel de Caçamba em Salvador e Região</h2>
+    <p>Entregamos caçambas de entulho em toda Salvador e Região Metropolitana</p>
+    <a class="btn" href="https://wa.me/5571997266286" target="_blank">Verificar Atendimento na Minha Região</a>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="eyebrow">Perguntas Frequentes</div>
+    <h2>Dúvidas sobre Aluguel de Caçamba em Salvador</h2>
+
+    <details class="faq-item" open>
+      <summary>Quanto custa o aluguel de caçamba de entulho em Salvador?</summary>
+      <p>O preço do aluguel de caçamba varia conforme o tamanho da caçamba, o bairro de entrega e o período de locação. Entre em contato via WhatsApp para receber um orçamento imediato e sem compromisso.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Qual o prazo de entrega da caçamba em Salvador?</summary>
+      <p>A Potencial Entulho realiza a entrega da caçamba estacionária em até 24 horas após a confirmação do pedido. Em alguns bairros de Salvador atendemos no mesmo dia, sujeito à disponibilidade.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Que tipo de entulho posso colocar na caçamba?</summary>
+      <p>Aceitamos resíduos de construção civil como concreto, argamassa, tijolos, cerâmica, madeira, gesso e entulho de reforma e demolição. Não são aceitos resíduos perigosos, lixo doméstico ou materiais contaminados.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Por quantos dias posso ficar com a caçamba?</summary>
+      <p>O período padrão de locação é de até 5 dias corridos. Caso precise de mais tempo, entre em contato e combinamos a prorrogação. Também trabalhamos com trocas de caçamba para obras de maior volume.</p>
+    </details>
+    <details class="faq-item">
+      <summary>A Potencial Entulho atende Lauro de Freitas e Camaçari?</summary>
+      <p>Sim! Além de toda a cidade de Salvador, atendemos toda a Região Metropolitana, incluindo Lauro de Freitas. Consulte disponibilidade pelo WhatsApp (71) 99726-6286.</p>
+    </details>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="wrap">
+    <h2>Precisa de Caçamba de Entulho em Salvador Agora?</h2>
+    <p>Solicite seu orçamento agora pelo WhatsApp. Entregamos em toda Salvador, Lauro de Freitas e Região Metropolitana!</p>
+    <a class="btn" href="https://wa.me/5571997266286" target="_blank">Fale com nosso time</a>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <div class="eyebrow">Fale conosco</div>
+    <h2 style="margin-bottom:32px;">Contato para Aluguel de Caçamba em Salvador</h2>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item">
+          <div class="label">Endereço</div>
+          <div class="value">Cabula — Salvador, Bahia</div>
+        </div>
+        <div class="contact-item">
+          <div class="label">WhatsApp — Peça sua Caçamba</div>
+          <div class="value">(71) 99726-6286</div>
+        </div>
+        <div class="contact-item">
+          <div class="label">E-mail</div>
+          <div class="value">contato@potencialentulho.com</div>
+        </div>
+        <div class="contact-item">
+          <div class="label">Horário de Atendimento</div>
+          <div class="value">Atendimento 24h</div>
+        </div>
+      </div>
+      <iframe src="https://maps.google.com/maps?q=Cabula%2C%20Salvador%2C%20Bahia%2C%20Brasil&t=m&z=15&output=embed&iwloc=near" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>Todos os Direitos Reservados – Desenvolvido por Leonardo Filipe</footer>
+
+</body>
+</html>

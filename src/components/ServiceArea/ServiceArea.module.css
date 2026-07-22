@@ -1,0 +1,13 @@
+.area {
+  text-align: center;
+}
+
+.area h2 {
+  margin: 0 auto 12px;
+}
+
+.area p {
+  color: var(--grey);
+  max-width: 480px;
+  margin: 0 auto 30px;
+}

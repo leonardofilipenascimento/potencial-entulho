@@ -1,0 +1,19 @@
+.topbar {
+  background: var(--dark);
+  color: #ccc;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  padding: 10px 0;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.item {
+  color: #eee;
+}

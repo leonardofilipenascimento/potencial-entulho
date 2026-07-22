@@ -1,0 +1,26 @@
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 28px 22px;
+  border-radius: 4px;
+}
+
+.icon {
+  height: 44px;
+  width: 44px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: none;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 13.5px;
+  color: var(--grey);
+  margin: 0;
+}
