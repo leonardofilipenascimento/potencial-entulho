@@ -16,4 +16,7 @@ export const siteInfo = {
   ogImage: "https://potencialentulho.com/caçamba-estacionaria.png",
 };
 
-export const whatsappLink = `https://wa.me/${siteInfo.whatsappNumber}`;
+const whatsappDefaultMessage =
+  "Olá! Vim através do site e gostaria de um orçamento de aluguel de caçambas estacionárias para entulho.";
+
+export const whatsappLink = `https://wa.me/${siteInfo.whatsappNumber}?text=${encodeURIComponent(whatsappDefaultMessage)}`;
