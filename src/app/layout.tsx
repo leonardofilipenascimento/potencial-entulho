@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Barlow, Barlow_Condensed } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { siteInfo } from "@/lib/site-data";
 import { getLocalBusinessSchema } from "@/lib/schema";
 import JsonLd from "@/components/JsonLd/JsonLd";
@@ -82,6 +83,7 @@ export default function RootLayout({
         <JsonLd data={getLocalBusinessSchema()} />
         {children}
       </body>
+      <GoogleAnalytics gaId="G-DL3B9QNTYW" />
     </html>
   );
 }
